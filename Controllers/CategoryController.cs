@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebBlog.Data;
+using WebBlog.Models;
 
 namespace WebBlog.Controllers
 {
@@ -22,6 +23,14 @@ namespace WebBlog.Controllers
                 return NotFound();
 
             return Ok(category);
+        }
+
+        [HttpPost("v1/categories")]
+        public async Task<IActionResult> PostAsync([FromBody] Category model, [FromServices] BlogDataContext ctx)
+        {
+            await ctx.Categories.AddAsync(model);
+            await ctx.SaveChangesAsync();
+            return Created($"v1/categories/{model.Id}", model);
         }
     }
 }
