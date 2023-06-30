@@ -45,7 +45,19 @@ namespace WebBlog.Controllers
 
             ctx.Categories.Update(category);
             await ctx.SaveChangesAsync();
-            return Created($"v1/categories/{model.Id}", model);
+            return Ok();
+        }
+
+        [HttpDelete("v1/categories/{id:int}")]
+        public async Task<IActionResult> DeleteAsync([FromRoute] int id, [FromServices] BlogDataContext ctx)
+        {
+            var category = await ctx.Categories.FirstOrDefaultAsync(x => x.Id == id);
+            if (category == null)
+                return NotFound("Category not found!");
+
+            ctx.Categories.Remove(category);
+            await ctx.SaveChangesAsync();
+            return Ok();
         }
     }
 }
