@@ -1,7 +1,7 @@
-using Blog.Models;
+using WebBlog.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blog.Data.Mappings
+namespace WebBlog.Data.Mappings
 {
     public class UserMap : IEntityTypeConfiguration<User>
     {

@@ -7,9 +7,6 @@ namespace WebBlog.Controllers
     public class HomeController : Controller
     {
         [HttpGet("")]
-        public IActionResult Get()
-        {
-            return Ok();
-        }
+        public IActionResult Get() => Ok();
     }
 }

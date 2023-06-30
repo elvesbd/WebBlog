@@ -1,4 +1,4 @@
-using Blog.Data;
+using WebBlog.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
