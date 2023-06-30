@@ -41,7 +41,7 @@ namespace WebBlog.Controllers
         }
 
         [HttpPost("v1/categories")]
-        public async Task<IActionResult> PostAsync([FromBody] CreateCategoryViewModel model, [FromServices] BlogDataContext ctx)
+        public async Task<IActionResult> PostAsync([FromBody] EditorCategoryViewModel model, [FromServices] BlogDataContext ctx)
         {
             try
             {
@@ -66,7 +66,7 @@ namespace WebBlog.Controllers
         }
 
         [HttpPut("v1/categories/{id:int}")]
-        public async Task<IActionResult> PutAsync([FromRoute] int id, [FromBody] Category model, [FromServices] BlogDataContext ctx)
+        public async Task<IActionResult> PutAsync([FromRoute] int id, [FromBody] EditorCategoryViewModel model, [FromServices] BlogDataContext ctx)
         {
             try
             {
