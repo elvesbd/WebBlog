@@ -11,4 +11,5 @@ builder.Services.AddDbContext<BlogDataContext>();
 
 var app = builder.Build();
 app.MapControllers();
+Console.WriteLine($"Versão do C#: {Environment.Version}");
 app.Run();

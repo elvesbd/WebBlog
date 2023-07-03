@@ -1,10 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using WebBlog.Data;
 using WebBlog.Models;
 using WebBlog.ViewModels;
 using WebBlog.Extensions;
-
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebBlog.Controllers
 {
