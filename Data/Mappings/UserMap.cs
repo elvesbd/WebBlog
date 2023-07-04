@@ -23,7 +23,7 @@ namespace WebBlog.Data.Mappings
                 .IsRequired()
                 .HasColumnName("Email")
                 .HasColumnType("VARCHAR")
-                .HasMaxLength(200);
+                .HasMaxLength(160);
 
             builder.Property("PasswordHash")
                 .IsRequired()
@@ -32,7 +32,7 @@ namespace WebBlog.Data.Mappings
                 .HasMaxLength(255);
 
             builder.Property("Image")
-                .IsRequired()
+                .IsRequired(false)
                 .HasColumnName("Image")
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(2000);
@@ -44,7 +44,7 @@ namespace WebBlog.Data.Mappings
                 .HasMaxLength(80);
 
             builder.Property("Bio")
-                .IsRequired()
+                .IsRequired(false)
                 .HasColumnName("Bio")
                 .HasColumnType("TEXT");
 

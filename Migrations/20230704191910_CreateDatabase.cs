@@ -60,11 +60,11 @@ namespace WebBlog.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "NVARCHAR(80)", maxLength: 80, nullable: false),
-                    Email = table.Column<string>(type: "VARCHAR(200)", maxLength: 200, nullable: false),
+                    Email = table.Column<string>(type: "VARCHAR(160)", maxLength: 160, nullable: false),
                     PasswordHash = table.Column<string>(type: "VARCHAR(255)", maxLength: 255, nullable: false),
-                    Image = table.Column<string>(type: "VARCHAR(2000)", maxLength: 2000, nullable: false),
+                    Image = table.Column<string>(type: "VARCHAR(2000)", maxLength: 2000, nullable: true),
                     Slug = table.Column<string>(type: "VARCHAR(80)", maxLength: 80, nullable: false),
-                    Bio = table.Column<string>(type: "TEXT", nullable: false)
+                    Bio = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -82,7 +82,7 @@ namespace WebBlog.Migrations
                     Body = table.Column<string>(type: "TEXT", nullable: false),
                     Slug = table.Column<string>(type: "VARCHAR(80)", maxLength: 80, nullable: false),
                     CreateDate = table.Column<DateTime>(type: "SMALLDATETIME", nullable: false, defaultValueSql: "GETDATE()"),
-                    LastUpdateDate = table.Column<DateTime>(type: "SMALLDATETIME", nullable: false, defaultValue: new DateTime(2023, 6, 30, 15, 7, 16, 138, DateTimeKind.Utc).AddTicks(2367)),
+                    LastUpdateDate = table.Column<DateTime>(type: "SMALLDATETIME", nullable: false, defaultValue: new DateTime(2023, 7, 4, 19, 19, 9, 964, DateTimeKind.Utc).AddTicks(9599)),
                     CategoryId = table.Column<int>(type: "int", nullable: true),
                     AuthorId = table.Column<int>(type: "int", nullable: true)
                 },

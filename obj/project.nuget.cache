@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZC3wSut1/FTUCShtRCD0QO3ubtlTdMKsci66nOzUuTtewnwiEXM34upJqcfL/FPCdgJhWilT9yX0xdIlH5hq8A==",
+  "dgSpecHash": "T9qQ/6e7NMr5LnwcLOToE+C5nfcgk8xpfJNBwRmmzOiJMb1nzswY+QuE0MFlndmPj48fDkkuvUiaV98n/eBJYw==",
   "success": true,
   "projectFilePath": "/home/ebd/ebd/baltaio/BackEndCourse/ASPNETFundaments/WebBlog/WebBlog.csproj",
   "expectedPackageFiles": [
@@ -70,6 +70,7 @@
     "/home/ebd/.nuget/packages/runtime.any.system.threading.tasks/4.3.0/runtime.any.system.threading.tasks.4.3.0.nupkg.sha512",
     "/home/ebd/.nuget/packages/runtime.native.system/4.3.0/runtime.native.system.4.3.0.nupkg.sha512",
     "/home/ebd/.nuget/packages/runtime.unix.system.private.uri/4.3.0/runtime.unix.system.private.uri.4.3.0.nupkg.sha512",
+    "/home/ebd/.nuget/packages/secureidentity/1.0.4/secureidentity.1.0.4.nupkg.sha512",
     "/home/ebd/.nuget/packages/system.buffers/4.5.1/system.buffers.4.5.1.nupkg.sha512",
     "/home/ebd/.nuget/packages/system.codedom/4.4.0/system.codedom.4.4.0.nupkg.sha512",
     "/home/ebd/.nuget/packages/system.configuration.configurationmanager/5.0.0/system.configuration.configurationmanager.5.0.0.nupkg.sha512",

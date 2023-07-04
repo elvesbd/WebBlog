@@ -1,3 +1,4 @@
 {
-  "dotnet.defaultSolution": "WebBlog.sln"
+  "dotnet.defaultSolution": "WebBlog.sln",
+  "cSpell.words": ["Hasher"]
 }

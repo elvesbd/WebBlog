@@ -20,7 +20,7 @@ namespace WebBlog.Controllers
             }
             catch (Exception _)
             {
-                return StatusCode(500, new ResultViewModel<List<Category>>("01XE1 - Internal server failure!"));
+                return StatusCode(500, new ResultViewModel<List<Category>>("02XE1 - Internal server failure!"));
             }
         }
 
@@ -61,11 +61,11 @@ namespace WebBlog.Controllers
             }
             catch (DbUpdateException _)
             {
-                return StatusCode(500, new ResultViewModel<Category>("03XE3 - Unable to add category!"));
+                return StatusCode(500, new ResultViewModel<Category>("02XE3 - Unable to add category!"));
             }
             catch (Exception _)
             {
-                return StatusCode(500, new ResultViewModel<Category>("03XE4 - Internal server failure!"));
+                return StatusCode(500, new ResultViewModel<Category>("02XE4 - Internal server failure!"));
             }
         }
 
@@ -87,11 +87,11 @@ namespace WebBlog.Controllers
             }
             catch (DbUpdateException _)
             {
-                return StatusCode(500, new ResultViewModel<Category>("04XE5 - Unable to update category"));
+                return StatusCode(500, new ResultViewModel<Category>("02XE5 - Unable to update category"));
             }
             catch (Exception _)
             {
-                return StatusCode(500, new ResultViewModel<Category>("04XE6 - Internal server failure!"));
+                return StatusCode(500, new ResultViewModel<Category>("02XE6 - Internal server failure!"));
             }
         }
 
@@ -110,11 +110,11 @@ namespace WebBlog.Controllers
             }
             catch (DbUpdateException _)
             {
-                return StatusCode(500, new ResultViewModel<Category>("05XE7 - Não foi possível excluir a categoria!"));
+                return StatusCode(500, new ResultViewModel<Category>("02XE7 - Não foi possível excluir a categoria!"));
             }
             catch (Exception _)
             {
-                return StatusCode(500, new ResultViewModel<Category>("05XE7 - Internal server failure!"));
+                return StatusCode(500, new ResultViewModel<Category>("02XE8 - Internal server failure!"));
             }
         }
     }
