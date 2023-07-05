@@ -65,4 +65,5 @@ void ConfigureServices(WebApplicationBuilder builder)
     builder.Services.AddTransient<TokenService>(); // sempre cria uma nova instância
     // builder.Services.AddScoped(); Cria apenas uma instância por transação, terminou encerra
     // builder.Services.AddSingleton(); Carrega na primeira vez que é chamado para a memoria e mantém
+    builder.Services.AddTransient<EmailService>();
 }
