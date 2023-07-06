@@ -25,7 +25,7 @@ void LoadConfiguration(WebApplication app)
     Configuration.ApiKey = app.Configuration.GetValue<string>("ApiKey");
 
     var smtp = new Configuration.SmtpConfiguration();
-    app.Configuration.GetSection("Smtp").Bind(smtp);
+    app.Configuration.GetSection("SmtpConfiguration").Bind(smtp);
     Configuration.Smtp = smtp;
 }
 

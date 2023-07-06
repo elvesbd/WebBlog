@@ -12,10 +12,16 @@ namespace WebBlog.Controllers;
 [ApiController]
 public class AccountController : ControllerBase
 {
+    private readonly EmailService _emailService;
     private readonly TokenService _tokenService;
     private readonly BlogDataContext _blogDataContext;
-    public AccountController(TokenService tokenService, BlogDataContext blogDataContext)
+    public AccountController(
+        EmailService emailService,
+        TokenService tokenService,
+        BlogDataContext blogDataContext
+    )
     {
+        _emailService = emailService;
         _tokenService = tokenService;
         _blogDataContext = blogDataContext;
     }
@@ -39,6 +45,12 @@ public class AccountController : ControllerBase
         {
             await _blogDataContext.Users.AddAsync(user);
             await _blogDataContext.SaveChangesAsync();
+            _emailService.Send(
+                user.Name,
+                user.Email,
+                "Bem vindo ao futuro!",
+                $"Sua senha de acesso é <strong>{password}</strong>"
+            );
 
             return Ok(new ResultViewModel<dynamic>(new
             {
