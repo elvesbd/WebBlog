@@ -1,6 +1,6 @@
 using WebBlog.Data;
 using WebBlog.Models;
-using WebBlog.ViewModels;
+using WebBlog.ViewModels.Categories;
 using WebBlog.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

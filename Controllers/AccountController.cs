@@ -1,11 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SecureIdentity.Password;
 using WebBlog.Data;
 using WebBlog.Services;
-using WebBlog.ViewModels;
+using WebBlog.ViewModels.Accounts;
+using WebBlog.ViewModels.Categories;
 using WebBlog.Extensions;
 using WebBlog.Models;
-using SecureIdentity.Password;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using System.Text.RegularExpressions;
 
 namespace WebBlog.Controllers;
 
@@ -95,5 +98,41 @@ public class AccountController : ControllerBase
         {
             return StatusCode(500, new ResultViewModel<string>("01XE5 - Internal server error!"));
         }
+    }
+
+    [Authorize]
+    [HttpPost("v1/accounts/upload-image")]
+    public async Task<IActionResult> UploadImage([FromBody] UploadImageViewModel model)
+    {
+        var fileName = $"{Guid.NewGuid().ToString()}.jpg";
+        var data = new Regex(@"^data:image\/[a-z]+;base64,").Replace(model.Base64Image, "");
+        var bytes = Convert.FromBase64String(data);
+
+        try
+        {
+            await System.IO.File.WriteAllBytesAsync($"wwwroot/images/{fileName}", bytes);
+        }
+        catch (System.Exception)
+        {
+            return StatusCode(500, new ResultViewModel<string>("O1XE6 - Internal server error!"));
+        }
+
+        var user = await _blogDataContext.Users
+            .FirstOrDefaultAsync(x => x.Email == User.Identity.Name);
+        if (user == null)
+            return NotFound(new ResultViewModel<Category>("User not found"));
+
+        user.Image = $"https://localhos:0000/images/{fileName}";
+        try
+        {
+            _blogDataContext.Users.Update(user);
+            await _blogDataContext.SaveChangesAsync();
+        }
+        catch (System.Exception)
+        {
+            return StatusCode(500, new ResultViewModel<string>("01XE7 - Internal server error!"));
+        }
+
+        return Ok(new ResultViewModel<string>("Updated image on success!"));
     }
 }
