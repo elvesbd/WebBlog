@@ -21,15 +21,15 @@ public class PostController : ControllerBase
             .AsNoTracking()
             .Include(p => p.Category)
             .Include(p => p.Author)
-            .Select(x => new ListPostViewModel
-            {
-                Id = x.Id,
-                Title = x.Title,
-                Slug = x.Slug,
-                LasUpdateDate = x.LastUpdateDate,
-                Category = x.Category.Name,
-                Author = $"{x.Author.Name} ({x.Author.Email})",
-            })
+            // .Select(x => new ListPostViewModel
+            // {
+            //     Id = x.Id,
+            //     Title = x.Title,
+            //     Slug = x.Slug,
+            //     LasUpdateDate = x.LastUpdateDate,
+            //     Category = x.Category.Name,
+            //     Author = $"{x.Author.Name} ({x.Author.Email})",
+            // })
             .ToListAsync();
         return Ok(posts);
     }
