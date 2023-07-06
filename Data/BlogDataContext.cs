@@ -7,7 +7,7 @@ namespace WebBlog.Data
     public class BlogDataContext : DbContext
     {
         private const string CONNECTION_STRING = @"
-            Server=localhost,1433;Database=Blog;User ID=sa;Password=1q2w3e4r@#$;Encrypt=false
+            Server=localhost,1433;Database=blog-modulo-6;User ID=sa;Password=1q2w3e4r@#$;Encrypt=false
         ";
 
         public DbSet<Category> Categories { get; set; }
