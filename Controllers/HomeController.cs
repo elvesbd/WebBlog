@@ -7,8 +7,14 @@ namespace WebBlog.Controllers
     [Route("")]
     public class HomeController : Controller
     {
-        [ApiKey]
         [HttpGet("")]
-        public IActionResult Get() => Ok();
+        public IActionResult Get([FromServices] IConfiguration config)
+        {
+            var env = config.GetValue<string>("Env");
+            return Ok(new
+            {
+                environment = env
+            });
+        }
     }
 }
