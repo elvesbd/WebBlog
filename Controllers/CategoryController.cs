@@ -4,24 +4,40 @@ using WebBlog.ViewModels.Categories;
 using WebBlog.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace WebBlog.Controllers
 {
     [ApiController]
     public class CategoryController : ControllerBase
     {
+        private readonly IMemoryCache _cache;
+        public CategoryController(IMemoryCache cache)
+        {
+            _cache = cache;
+        }
+
         [HttpGet("v1/categories")]
         public async Task<IActionResult> GetAsync([FromServices] BlogDataContext ctx)
         {
             try
             {
-                var categories = await ctx.Categories.ToListAsync();
+                var categories = _cache.GetOrCreate("CategoriesCache", entry =>
+                {
+                    entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromHours(1);
+                    return GetCategories(ctx);
+                });
+
                 return Ok(new ResultViewModel<List<Category>>(categories));
             }
             catch (Exception _)
             {
                 return StatusCode(500, new ResultViewModel<List<Category>>("02XE1 - Internal server failure!"));
             }
+        }
+        private List<Category> GetCategories(BlogDataContext ctx)
+        {
+            return ctx.Categories.ToList();
         }
 
         [HttpGet("v1/categories/{id:int}")]
