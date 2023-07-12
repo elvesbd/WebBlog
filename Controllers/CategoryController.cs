@@ -30,7 +30,7 @@ namespace WebBlog.Controllers
 
                 return Ok(new ResultViewModel<List<Category>>(categories));
             }
-            catch (Exception _)
+            catch (Exception)
             {
                 return StatusCode(500, new ResultViewModel<List<Category>>("02XE1 - Internal server failure!"));
             }
@@ -51,7 +51,7 @@ namespace WebBlog.Controllers
 
                 return Ok(category);
             }
-            catch (Exception _)
+            catch (Exception)
             {
                 return StatusCode(500, new ResultViewModel<Category>("02XE2 - Internal server failure!"));
             }
@@ -75,11 +75,11 @@ namespace WebBlog.Controllers
                 await ctx.SaveChangesAsync();
                 return Created($"v1/categories/{category.Id}", new ResultViewModel<Category>(category));
             }
-            catch (DbUpdateException _)
+            catch (DbUpdateException)
             {
                 return StatusCode(500, new ResultViewModel<Category>("02XE3 - Unable to add category!"));
             }
-            catch (Exception _)
+            catch (Exception)
             {
                 return StatusCode(500, new ResultViewModel<Category>("02XE4 - Internal server failure!"));
             }
@@ -101,11 +101,11 @@ namespace WebBlog.Controllers
                 await ctx.SaveChangesAsync();
                 return Ok(new ResultViewModel<Category>(category));
             }
-            catch (DbUpdateException _)
+            catch (DbUpdateException)
             {
                 return StatusCode(500, new ResultViewModel<Category>("02XE5 - Unable to update category"));
             }
-            catch (Exception _)
+            catch (Exception)
             {
                 return StatusCode(500, new ResultViewModel<Category>("02XE6 - Internal server failure!"));
             }
@@ -124,11 +124,11 @@ namespace WebBlog.Controllers
                 await ctx.SaveChangesAsync();
                 return Ok(new ResultViewModel<Category>(category));
             }
-            catch (DbUpdateException _)
+            catch (DbUpdateException)
             {
                 return StatusCode(500, new ResultViewModel<Category>("02XE7 - Não foi possível excluir a categoria!"));
             }
-            catch (Exception _)
+            catch (Exception)
             {
                 return StatusCode(500, new ResultViewModel<Category>("02XE8 - Internal server failure!"));
             }

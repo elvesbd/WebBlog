@@ -31,13 +31,13 @@ public class PostController : ControllerBase
                     Id = x.Id,
                     Title = x.Title,
                     Slug = x.Slug,
-                    LasUpdateDate = x.LastUpdateDate,
+                    LastUpdateDate = x.LastUpdateDate,
                     Category = x.Category.Name,
                     Author = $"{x.Author.Name} ({x.Author.Email})",
                 })
                 .Skip(page * pageSize)
                 .Take(pageSize)
-                .OrderByDescending(x => x.LasUpdateDate)
+                .OrderByDescending(x => x.LastUpdateDate)
                 .ToListAsync();
             return Ok(new ResultViewModel<dynamic>(new
             {
@@ -96,13 +96,13 @@ public class PostController : ControllerBase
                     Id = x.Id,
                     Title = x.Title,
                     Slug = x.Slug,
-                    LasUpdateDate = x.LastUpdateDate,
+                    LastUpdateDate = x.LastUpdateDate,
                     Category = x.Category.Name,
                     Author = $"{x.Author.Name} ({x.Author.Email})",
                 })
                 .Skip(page * pageSize)
                 .Take(pageSize)
-                .OrderByDescending(x => x.LasUpdateDate)
+                .OrderByDescending(x => x.LastUpdateDate)
                 .ToListAsync();
             return Ok(new ResultViewModel<dynamic>(new
             {

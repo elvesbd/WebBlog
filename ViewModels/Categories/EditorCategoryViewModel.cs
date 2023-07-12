@@ -4,12 +4,12 @@ namespace WebBlog.ViewModels.Categories
 {
     public class EditorCategoryViewModel
     {
-        [Required(ErrorMessage = "O campo name é obrigatório")]
-        [StringLength(40, MinimumLength = 3, ErrorMessage = "O campo name deve conter no mínimo 3 caracteres e no máximo 40 caracteres")]
-        public string Name { get; set; }
+        [Required(ErrorMessage = "O nome é obrigatório")]
+        [StringLength(40, MinimumLength = 3, ErrorMessage = "Este campo deve conter entre 3 e 40 caracteres")]
+        public string Name { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "O campo slug é obrigatório")]
-        public string Slug { get; set; }
+        [Required(ErrorMessage = "O slug é obrigatório")]
+        public string Slug { get; set; } = string.Empty;
 
     }
 }

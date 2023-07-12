@@ -8,9 +8,9 @@ public static class Configuration
 
     public class SmtpConfiguration
     {
-        public string Host { get; set; }
+        public string Host { get; set; } = string.Empty;
         public int Port { get; set; } = 25;
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public string UserName { get; set; } = string.Empty;
+        public string Password { get; set; } = string.Empty;
     }
 }

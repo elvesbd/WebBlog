@@ -6,8 +6,8 @@ public class LoginViewModel
 {
     [Required(ErrorMessage = "Email must be informed!")]
     [EmailAddress(ErrorMessage = "Invalid email!")]
-    public string Email { get; set; }
+    public string Email { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "Password must be informed!")]
-    public string Password { get; set; }
+    public string Password { get; set; } = string.Empty;
 }

@@ -133,6 +133,6 @@ public class AccountController : ControllerBase
             return StatusCode(500, new ResultViewModel<string>("01XE7 - Internal server error!"));
         }
 
-        return Ok(new ResultViewModel<string>("Updated image on success!"));
+        return Ok(new ResultViewModel<string>("Updated image on success!", null));
     }
 }
